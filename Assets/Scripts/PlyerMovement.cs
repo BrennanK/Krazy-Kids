@@ -11,15 +11,14 @@ public class PlyerMovement : MonoBehaviour {
 
     void Start () {
 
-        transform.position = new Vector3(0, 0.56f, -8.64f);
+        transform.position = new Vector3(0, 0, -0.1f); 
 
         
-
     }
 	
 	
 	void Update () {
-        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"),0);
         Vector3 direction = input.normalized;
 
         Vector3 velocity = direction * speed;
@@ -27,15 +26,15 @@ public class PlyerMovement : MonoBehaviour {
         Vector3 moveAmount = velocity * Time.deltaTime;
         transform.position += moveAmount;
         // transform.Translate(moveAmount);
-        LimitPlayerMovement();
+      //  LimitPlayerMovement();
         
     }
-    void LimitPlayerMovement()
-    {
+    //void LimitPlayerMovement()
+    //{
 
-        Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(transform.position.x, -3.75f, 3.135f);
-        transform.position = pos;
-    }
+    //    Vector3 pos = transform.position;
+    //    pos.x = Mathf.Clamp(-14.0f, -3.75f, 0);
+    //    transform.position = pos;
+    //}
    
 }
