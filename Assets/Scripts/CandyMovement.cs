@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CandyMovement : MonoBehaviour {
 
-    public float candySpeed;
+    public float candySpeed ;
+    
 	void Start () {
 		
 	}
-	
-	void Update () {
 
-        transform.Translate((Vector3.up * candySpeed )* Time.deltaTime);
-	}
+    void Update()
+    {
+        transform.Translate(transform.right * candySpeed * Time.deltaTime);
+    }
 }

@@ -5,20 +5,24 @@ using UnityEngine;
 public class Fire : MonoBehaviour {
 
     private CandyMovement candy;
-    public Rigidbody candyPrefab;
-    
 
-	void Start () {
+    public GameObject candyPrefab;
+
+    GameObject CandyInstance;
+    void Start () {
 		
 	}
 	
 	void Update () {
-        if (Input.GetButtonDown("Fire1"))
+        if ( Input.GetButtonDown ("Fire1") )
         {
-            Rigidbody CandyInstance;
-           CandyInstance = Instantiate(candyPrefab, this.transform.position, Quaternion.identity);
-            //CandyInstance.AddForce((Vector2.up * candy.candySpeed) * Time.deltaTime);
+            
+           CandyInstance = Instantiate(candyPrefab, this.transform.position, Quaternion.identity) ;
+
+            //CandyInstance.AddForce((Vector2.up * candy.candySpeed) * Time.deltaTime
+            Destroy(CandyInstance, 2f);
 
         }
+        
     }
 }

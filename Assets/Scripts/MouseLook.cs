@@ -4,33 +4,28 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-
-    // Use this for initialization
+     private Fire fire;  
+     float offset = 0.0f; private Vector3 difference;
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
+
+         Vector3 difference = Camera.main.ScreenToWorldPoint((Input.mousePosition) - transform.position);
+        difference.Normalize();
         
-        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
+        float rotation_z = Mathf.Atan2(difference.y,  difference.y) * Mathf.Rad2Deg;
+        float angleLookAt = (180/ Mathf.PI) * rotation_z;
+        transform.rotation = Quaternion.Euler (0f, 0f, angleLookAt );
+        
 
-         Vector2 mouseOnScreen = Camera.main.ScreenToViewportPoint( Input.mousePosition );
-
-         float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-
-        float AngleDeg = (180 / Mathf.PI) * angle;
-
-        transform.rotation = Quaternion.Euler(new Vector3(0f, AngleDeg, 0f)); 
         
     }
 
-    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
-    {
+    
 
-         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg; ;
-        
-    } 
+
 }
