@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour {
 
-    private CandyMovement candy;
 
     public GameObject candyPrefab;
 
-    GameObject CandyInstance;
+    GameObject CandyInstance; private Transform playerPos;
     void Start () {
-		
+        playerPos = GetComponent<Transform>();
 	}
 	
 	void Update () {
-        if ( Input.GetButtonDown ("Fire1") )
+        if ( Input.GetMouseButtonDown (0) )
         {
-            
-           CandyInstance = Instantiate(candyPrefab, this.transform.position, Quaternion.identity) ;
 
-            //CandyInstance.AddForce((Vector2.up * candy.candySpeed) * Time.deltaTime
+            CandyInstance = Instantiate(candyPrefab, playerPos.position, Quaternion.identity) ;
+
+            //CandyInstance.transform.Translate(Vector3.up);
             Destroy(CandyInstance, 2f);
+
 
         }
         
     }
 }
+//if (((Input.GetButtonDown("Fire1")) && Input.GetKeyDown(KeyCode.A)))
+//            {
+//                transform.Translate((transform.right* candySpeed * Time.deltaTime));
+//            }
+//            if ((Input.GetKeyDown(KeyCode.D) && (Input.GetButtonDown("Fire1"))))
+//            {
+//                transform.Translate((transform.up* candySpeed * Time.deltaTime));
+//            }

@@ -5,13 +5,19 @@ using UnityEngine;
 public class CandyMovement : MonoBehaviour {
 
     public float candySpeed ;
-    
+
+    private Vector2 target;
+
 	void Start () {
-		
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 	}
 
     void Update()
     {
-        transform.Translate(transform.right * candySpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target, candySpeed * Time.deltaTime);
+
     }
+
+
+
 }

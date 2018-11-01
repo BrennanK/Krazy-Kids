@@ -16,13 +16,17 @@ public class CameraMovement : MonoBehaviour {
 	
 
 	void LateUpdate () {
-        
-        transform.position = new Vector3( player.transform.position.x + offset.x , player.transform.position.y+ offset.y, offset.z);
 
-       transform.position = Vector3.Lerp(transform.position, transform.position, smoothing * Time.deltaTime);
+        Method();
         
 
     }
+   public void Method()
+    {
+        transform.position = new Vector3(player.transform.position.x + offset.x, player.transform.position.y + offset.y, offset.z);
 
-    
+        transform.position = Vector3.Lerp(transform.position, transform.position, smoothing * Time.deltaTime);
+
+    }
+
 }

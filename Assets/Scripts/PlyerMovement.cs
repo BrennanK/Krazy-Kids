@@ -31,6 +31,9 @@ public class PlyerMovement : MonoBehaviour {
 
     }
     
+    
+
+   
 
     //void LimitPlayerMovement()
     //{

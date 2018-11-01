@@ -10,15 +10,25 @@ public class Enemy : MonoBehaviour {
     public Transform[] spawnPoints;
 	
 	void Start () {
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+
   
     }
 	
 	void Update () {
 
         Spawn();   
+
+        
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("candy")) {
+            Destroy(this.transform);
+        }
+
+    }
+
     void Spawn()
     {
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
