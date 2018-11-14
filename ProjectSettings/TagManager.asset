@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - time manager
+  - Candy
+  - spawn manager
+  - Enemy
+  - Environment
   layers:
   - Default
   - TransparentFX
