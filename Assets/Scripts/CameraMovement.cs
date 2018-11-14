@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
     public GameObject player;
-    float smoothing = 5;
+    float smoothing = 5; //5
 
     private Vector3 offset;
     void Start () {
@@ -17,8 +17,8 @@ public class CameraMovement : MonoBehaviour {
 	void LateUpdate () {
         transform.position = player.transform.position + offset;
 
-       transform.position = Vector3.Lerp(transform.position, transform.position, smoothing * Time.deltaTime);
-
+        transform.position = Vector3.Lerp(transform.position, transform.position, smoothing * Time.deltaTime);
+       
     }
 
     
